@@ -1,0 +1,5 @@
+Move W in position (0, 0) is illegal - the position is not empty.
+Move W in position (1, 1) is legal - there is an adjacent (shared) liberty.
+Move B in position (1, 1) is illegal.
+Move W in position (1, 1) is legal - there is an adjacent (shared) liberty.
+Move B in position (2, 2) is legal through capture of opponent's stones.
