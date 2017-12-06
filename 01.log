@@ -1,5 +1,45 @@
+B..
+...
+...
+W
+Safe Up
+Safe Left
+safe right
+safe down
 Move W in position (0, 0) is illegal.
+...
+...
+...
+W
+safe up
+safe left
+safe right
+safe down
 Move W in position (1, 1) is illegal.
+.W.
+W.W
+.W.
+B
+Illegal
+Illegal
+Illegal
+Illegal
 Move B in position (1, 1) is illegal.
+.W.
+W.W
+.W.
+W
+safe up
+safe left
+safe right
+safe down
 Move W in position (1, 1) is illegal.
+.BB
+BWW
+BW.
+B
+Illegal
+Illegal
+Safe Right
+Safe Down
 Move B in position (2, 2) is illegal.
