@@ -5,17 +5,13 @@ W
 Safe Up
 Safe Left
 safe right
-safe down
-Move W in position (0, 0) is illegal.
+Move W in position (0, 0) is legal - there is an adjacent (shared) liberty.
 ...
 ...
 ...
 W
 safe up
-safe left
-safe right
-safe down
-Move W in position (1, 1) is illegal.
+Move W in position (1, 1) is legal - there is an adjacent (shared) liberty.
 .W.
 W.W
 .W.
@@ -29,10 +25,8 @@ Move B in position (1, 1) is illegal.
 W.W
 .W.
 W
+Check up
 safe up
-safe left
-safe right
-safe down
 Move W in position (1, 1) is illegal.
 .BB
 BWW
@@ -42,4 +36,10 @@ Illegal
 Illegal
 Safe Right
 Safe Down
+Illegal
+Illegal
+Safe Right
+Safe Down
+Illegal
+safe right
 Move B in position (2, 2) is illegal.
