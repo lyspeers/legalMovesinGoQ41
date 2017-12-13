@@ -20,6 +20,8 @@ public class LegalMovesInGo {
 
 	private static boolean checkAdjacentLiberties(String[] board, char c, int pos_x, int pos_y) {
 
+
+		alreadyChecked  = false;
 		if (pos_y == 0) {
 			System.out.println("Safe Up");
 		} else if (board[pos_y - 1].charAt(pos_x) == '.') {
@@ -32,9 +34,10 @@ public class LegalMovesInGo {
 
 			libertyCheck = true;
 			if(checked[pos_y-1][pos_x] == -1)
-			if(alreadyChecked){
+				alreadyChecked = true;
+			if(alreadyChecked)
 				libertyCheck = false;
-			}
+
 		} else {
 			System.out.println("Illegal");
 		}
@@ -51,6 +54,7 @@ public class LegalMovesInGo {
 		else if (board[pos_y].charAt(pos_x - 1) == c ){
 			//already checked method
 			libertyCheck = true;
+			if(checked[pos_y][pos_x-1] == -1)
 			if(alreadyChecked){
 				libertyCheck = false;
 			}
@@ -70,9 +74,10 @@ public class LegalMovesInGo {
 		else if( board[pos_y].charAt(pos_x + 1) == c){
 			//already checked method
 			libertyCheck = true;
-			if(alreadyChecked){
-				libertyCheck = false;
-			}
+			if(checked[pos_y][pos_x-1] == -1)
+				if(alreadyChecked){
+					libertyCheck = false;
+				}
 		}
 		else {
 			System.out.println("Illegal");
@@ -85,20 +90,24 @@ public class LegalMovesInGo {
 
 			return true;
 
-
 		}
 		else if(board[pos_y + 1].charAt(pos_x) == c){
 			//already checked method
 			libertyCheck = true;
-			if(alreadyChecked){
-				libertyCheck = false;
-			}
+			if(checked[pos_y][pos_x-1] == -1)
+				if(alreadyChecked){
+					libertyCheck = false;
+				}
 		}
 		else {
-			System.out.println("Illegal");
+			return false;
 		}
-		if(libertyCheck)
-			checkAdjacentLiberties(check, c, pos_x - 1, pos_y);
+
+
+		if(libertyCheck) {
+			checked[pos_x][pos_y] = -1;
+			checkAdjacentLiberties(check, c, pos_x, pos_y);
+		}
 
 
 		return false;
@@ -121,7 +130,7 @@ public class LegalMovesInGo {
 		 *
 		 * */
 
-		checked = new int[board[0].length()][board.length];
+		checked = new int[board[0].length()][board[0].length()];
 		for (int i=0; i<checked.length; i++) {
 			for (int j=0; j<checked[0].length; j++) {
 				checked[i][j] = 0;
@@ -165,6 +174,7 @@ public class LegalMovesInGo {
 
 		}
 		else if(board[pos_y].charAt(pos_x - 1) == c){
+
 			libertyCheck = true;
 		} else {
 			System.out.println("Illegal");
@@ -199,6 +209,7 @@ public class LegalMovesInGo {
 
 		}
 		else if(board[pos_y+1].charAt(pos_x) == c){
+
 			libertyCheck = true;
 		}
 
@@ -209,7 +220,9 @@ public class LegalMovesInGo {
 
 		if(libertyCheck) {
 			checked[pos_x][pos_y] = -1;
-			checkAdjacentLiberties(check, c, pos_x, pos_y);
+			if(checkAdjacentLiberties(check, c, pos_x, pos_y))
+				return LEGAL_ADJACENT_LIBERTY;
+
 		}
 		if(captureCheck){
 

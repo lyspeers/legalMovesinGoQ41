@@ -26,20 +26,3 @@ W.W
 .W.
 W
 Check up
-safe up
-Move W in position (1, 1) is illegal.
-.BB
-BWW
-BW.
-B
-Illegal
-Illegal
-Safe Right
-Safe Down
-Illegal
-Illegal
-Safe Right
-Safe Down
-Illegal
-safe right
-Move B in position (2, 2) is illegal.
